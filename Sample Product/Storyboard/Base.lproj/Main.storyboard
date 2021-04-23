@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FDJ-Ug-lEh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Products-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ProductVC" customModule="Sample_Product" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EqG-sR-Jeb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FlJ-sE-hn4">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="8rp-Or-7wB">
+                                            <size key="itemSize" width="0.0" height="300"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="FlJ-sE-hn4" firstAttribute="centerX" secondItem="EqG-sR-Jeb" secondAttribute="centerX" id="8LC-Hy-poy"/>
+                                    <constraint firstItem="FlJ-sE-hn4" firstAttribute="centerY" secondItem="EqG-sR-Jeb" secondAttribute="centerY" id="RcN-KI-7LK"/>
+                                    <constraint firstItem="FlJ-sE-hn4" firstAttribute="width" secondItem="EqG-sR-Jeb" secondAttribute="width" id="gs0-PJ-d3i"/>
+                                    <constraint firstItem="FlJ-sE-hn4" firstAttribute="height" secondItem="EqG-sR-Jeb" secondAttribute="height" id="l3n-lO-k7X"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.08444633335" green="0.19304555649999999" blue="0.33003342149999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EqG-sR-Jeb" secondAttribute="bottom" id="7sP-jM-DUE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EqG-sR-Jeb" secondAttribute="trailing" id="YLm-zJ-0QE"/>
+                            <constraint firstItem="EqG-sR-Jeb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kP0-cK-Fbr"/>
+                            <constraint firstItem="EqG-sR-Jeb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ngT-up-GKY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Products" id="OiB-LO-qbd">
+                        <barButtonItem key="rightBarButtonItem" title="Cart" id="ZGD-Bi-pLn" customClass="BadgeBarButtonItem" customModule="Sample_Product" customModuleProvider="target">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="badgeNumber">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <segue destination="mhX-se-CnO" kind="show" identifier="CartPage" id="hjv-90-tpt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="CartBtn" destination="ZGD-Bi-pLn" id="dMg-vJ-Td6"/>
+                        <outlet property="productsCollectionview" destination="FlJ-sE-hn4" id="Rmh-V2-B2X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="623" y="104"/>
+        </scene>
+        <!--Cart-->
+        <scene sceneID="bRF-y9-Kvw">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="mhX-se-CnO" customClass="CartVC" customModule="Sample_Product" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9DL-ah-RbX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRM-dv-jdS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6hN-9L-5d6">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="6hN-9L-5d6" firstAttribute="leading" secondItem="hRM-dv-jdS" secondAttribute="leading" id="fBx-lF-8om"/>
+                                    <constraint firstAttribute="bottom" secondItem="6hN-9L-5d6" secondAttribute="bottom" id="hrk-50-TsF"/>
+                                    <constraint firstAttribute="trailing" secondItem="6hN-9L-5d6" secondAttribute="trailing" id="ifI-3G-d2K"/>
+                                    <constraint firstItem="6hN-9L-5d6" firstAttribute="top" secondItem="hRM-dv-jdS" secondAttribute="top" id="pEA-BL-uJq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SYE-cn-yb9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hRM-dv-jdS" firstAttribute="leading" secondItem="SYE-cn-yb9" secondAttribute="leading" id="50x-WH-QNj"/>
+                            <constraint firstItem="SYE-cn-yb9" firstAttribute="trailing" secondItem="hRM-dv-jdS" secondAttribute="trailing" id="Drn-e3-JEy"/>
+                            <constraint firstItem="SYE-cn-yb9" firstAttribute="bottom" secondItem="hRM-dv-jdS" secondAttribute="bottom" id="nUL-f6-nqN"/>
+                            <constraint firstItem="hRM-dv-jdS" firstAttribute="top" secondItem="SYE-cn-yb9" secondAttribute="top" id="tEL-b9-odg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cart" id="NH8-jl-8Cr">
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="J2k-u3-Lp7">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="DeletePressed:" destination="mhX-se-CnO" id="7y9-Va-AUw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableview" destination="6hN-9L-5d6" id="9Xe-b9-Gbz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CDd-93-5iu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1346" y="104"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="o4n-ff-BhQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FDJ-Ug-lEh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="6fD-fo-uEo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.08444633335" green="0.19304555649999999" blue="0.33003342149999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ahB-EK-c2x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eyN-QT-wv4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-81.159420289855078" y="103.79464285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
