@@ -92,17 +92,12 @@ extension ProductVC: UICollectionViewDelegate, UICollectionViewDataSource{
         let selectitem = self.Products?.first(where: {$0.ProductId == share.Productlist[sender.tag].id})
         if selectitem?.ProductId != share.Productlist[sender.tag].id {
             try! realm.write {
-                print(incrementID())
-                print(share.Productlist[sender.tag].id)
-
                 ProductCart.ProductTitle = share.Productlist[sender.tag].title ?? ""
                 ProductCart.ProductPrice = share.Productlist[sender.tag].price ?? ""
                 ProductCart.ProductImage = share.Productlist[sender.tag].image ?? ""
                 ProductCart.ProductId = share.Productlist[sender.tag].id ?? 0
                 ProductCart.id = incrementID()
                 self.save(Product: ProductCart)
-
-                print(ProductCart)
                 loadCategories()
             }
         }else{
@@ -115,7 +110,6 @@ extension ProductVC: UICollectionViewDelegateFlowLayout{
      {
         let cellSize = CGSize(width: productsCollectionview.frame.width/2, height: 300)
         return cellSize
-
     }
 }
 extension ProductVC{
@@ -146,29 +140,4 @@ extension ProductVC{
         CartBtn.badgeNumber = Products?.count ?? 0
     }
     
-    func SaveData(id: Int, title: String, price: String, image: String){
-        if Products?.isEmpty == true || Products?.isEmpty == nil
-        {
-            ProductCart.ProductTitle = title
-            ProductCart.ProductPrice = price
-            ProductCart.ProductImage = image
-            ProductCart.ProductId = id
-            ProductCart.id = incrementID()
-            self.save(Product: ProductCart)
-
-            print(ProductCart)
-            loadCategories()
-        }else
-        {
-            ProductCart.ProductTitle = title
-            ProductCart.ProductPrice = price
-            ProductCart.ProductImage = image
-            ProductCart.ProductId = id
-            ProductCart.id = incrementID()
-            self.save(Product: ProductCart)
-
-            print(ProductCart)
-            loadCategories()
-        }
-    }
 }
